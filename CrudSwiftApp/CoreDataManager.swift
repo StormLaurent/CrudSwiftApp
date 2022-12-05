@@ -7,25 +7,27 @@
 
 import Foundation
 import CoreData
+import CoreText
 
 class CoreDataManager {
     let persistentContainer : NSPersistentContainer
     
     init(){
-        persistentContainer = NSPersistentContainer(name: "CrudSwiftApp")
+        persistentContainer = NSPersistentContainer(name: "Viga")
         persistentContainer.loadPersistentStores(completionHandler:{
             (descripcion,error)in
             if let error = error {
                 fatalError("Core data failed to inicialited \(error.localizedDescription)") }
         })
     }
-    func guardarViga(clv_obra: Int32,clv_viga: Int32, longitud:Double, material:String,peso:Double){
-        let viga = Viga(context: persistentContainer.viewContext)
-        viga.clv_obra = clv_obra
-        viga.clv_viga = clv_viga
-        viga.longitud = longitud
-        viga.material = material
-        viga.peso = peso
+    func guardarViga(clv_obra: String,clv_viga: String, longitud:String, material:String,peso:String){
+        let v = Viga(context: persistentContainer.viewContext)
+        v.clv_obra = clv_obra
+        v.clv_viga = clv_viga
+        v.longitud = longitud
+        v.material = material
+        v.peso = peso
+        
         
         do{
             try persistentContainer.viewContext.save()
@@ -44,6 +46,20 @@ class CoreDataManager {
             return[]
         }
     }
+    func leerViga(clv_viga:String)->Viga?{
+        let fetchRequest: NSFetchRequest<Viga> = Viga.fetchRequest()
+        let predicate = NSPredicate(format:"clv = %@", clv_viga)
+        fetchRequest.predicate = predicate
+        
+        do{
+            let datos = try persistentContainer.viewContext.fetch(fetchRequest)
+            return datos.first
+        }
+        catch{
+            print("Error al guardar en \(error)")
+        }
+        return nil
+    }
     func eliminarViga(Viga:Viga){
         persistentContainer.viewContext.delete(Viga)
         do{
@@ -54,7 +70,7 @@ class CoreDataManager {
             print("Ha ocurrido un error \(error.localizedDescription)")
         }
     }
-    func actualizarViga(clv_obra: Int32,clv_viga: Int32, longitud:Double, material:String,peso:Double){
+    func actualizarViga(clv_viga:Viga){
         let fetchRequest : NSFetchRequest<Viga> = Viga.fetchRequest()
         let predicate = NSPredicate(format: "clViga = %@", clv_viga ?? "")
         fetchRequest.predicate = predicate
@@ -62,11 +78,13 @@ class CoreDataManager {
         do{
             let datos = try persistentContainer.viewContext.fetch(fetchRequest)
             let v = datos.first
-            v?.clv_obra = clv_obra
-            v?.clv_viga = clv_viga
-            v?.longitud = longitud
-            v?.material = material
-            v?.peso = peso
+            v?.clv_obra = clv_viga.clv_obra
+            v?.clv_viga = clv_viga.clv_viga
+            v?.longitud = clv_viga.longitud
+            v?.material = clv_viga.material
+            v?.peso = clv_viga.peso
+            try persistentContainer.viewContext.save()
+            print("Viga guardada")
         }
         catch{
             print("Error en \(error)")
