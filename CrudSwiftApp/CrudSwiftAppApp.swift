@@ -15,7 +15,8 @@ struct CrudSwiftAppApp: App {
         WindowGroup {
            // ContentView()
                // .environment(\.managedObjectContext, persistenceController.container.viewContext)
-            // ESTO ES SOLO UNA PRUEBA
+            // ESTO ES SOLO UNA PRUEBa
+            //prueba 2
         }
     }
 }
