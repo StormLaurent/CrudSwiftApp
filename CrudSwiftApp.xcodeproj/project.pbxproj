@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9692674D293DA7C400E1BBD3 /* CrudSwiftAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9692674C293DA7C400E1BBD3 /* CrudSwiftAppApp.swift */; };
+		9692674D293DA7C400E1BBD3 /* CrudSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9692674C293DA7C400E1BBD3 /* CrudSwiftApp.swift */; };
 		9692674F293DA7C400E1BBD3 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9692674E293DA7C400E1BBD3 /* Persistence.swift */; };
 		96926752293DA7C400E1BBD3 /* CrudSwiftApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 96926750293DA7C400E1BBD3 /* CrudSwiftApp.xcdatamodeld */; };
 		96926756293DA7CE00E1BBD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96926755293DA7CE00E1BBD3 /* Assets.xcassets */; };
@@ -16,6 +16,7 @@
 		9692676E293DA7CE00E1BBD3 /* CrudSwiftAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9692676D293DA7CE00E1BBD3 /* CrudSwiftAppUITests.swift */; };
 		96926770293DA7CE00E1BBD3 /* CrudSwiftAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9692676F293DA7CE00E1BBD3 /* CrudSwiftAppUITestsLaunchTests.swift */; };
 		96926784293DB6FB00E1BBD3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96926783293DB6FB00E1BBD3 /* CoreDataManager.swift */; };
+		96926788293DFEAD00E1BBD3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96926787293DFEAD00E1BBD3 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +38,7 @@
 
 /* Begin PBXFileReference section */
 		96926749293DA7C400E1BBD3 /* CrudSwiftApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrudSwiftApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9692674C293DA7C400E1BBD3 /* CrudSwiftAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrudSwiftAppApp.swift; sourceTree = "<group>"; };
+		9692674C293DA7C400E1BBD3 /* CrudSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrudSwiftApp.swift; sourceTree = "<group>"; };
 		9692674E293DA7C400E1BBD3 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		96926751293DA7C400E1BBD3 /* Viga.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Viga.xcdatamodel; sourceTree = "<group>"; };
 		96926755293DA7CE00E1BBD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +50,7 @@
 		9692676D293DA7CE00E1BBD3 /* CrudSwiftAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrudSwiftAppUITests.swift; sourceTree = "<group>"; };
 		9692676F293DA7CE00E1BBD3 /* CrudSwiftAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrudSwiftAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		96926783293DB6FB00E1BBD3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		96926787293DFEAD00E1BBD3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +101,9 @@
 		9692674B293DA7C400E1BBD3 /* CrudSwiftApp */ = {
 			isa = PBXGroup;
 			children = (
+				96926787293DFEAD00E1BBD3 /* ContentView.swift */,
 				96926783293DB6FB00E1BBD3 /* CoreDataManager.swift */,
-				9692674C293DA7C400E1BBD3 /* CrudSwiftAppApp.swift */,
+				9692674C293DA7C400E1BBD3 /* CrudSwiftApp.swift */,
 				9692674E293DA7C400E1BBD3 /* Persistence.swift */,
 				96926755293DA7CE00E1BBD3 /* Assets.xcassets */,
 				96926757293DA7CE00E1BBD3 /* CrudSwiftApp.entitlements */,
@@ -265,7 +268,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9692674D293DA7C400E1BBD3 /* CrudSwiftAppApp.swift in Sources */,
+				9692674D293DA7C400E1BBD3 /* CrudSwiftApp.swift in Sources */,
+				96926788293DFEAD00E1BBD3 /* ContentView.swift in Sources */,
 				96926752293DA7C400E1BBD3 /* CrudSwiftApp.xcdatamodeld in Sources */,
 				96926784293DB6FB00E1BBD3 /* CoreDataManager.swift in Sources */,
 				9692674F293DA7C400E1BBD3 /* Persistence.swift in Sources */,

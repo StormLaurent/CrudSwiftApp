@@ -12,7 +12,7 @@ class CoreDataManager {
     let persistentContainer : NSPersistentContainer
     
     init(){
-        persistentContainer = NSPersistentContainer(name: "Viga")
+        persistentContainer = NSPersistentContainer(name: "CrudSwiftApp")
         persistentContainer.loadPersistentStores(completionHandler:{
             (descripcion,error)in
             if let error = error {

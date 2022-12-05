@@ -7,16 +7,16 @@
 
 import SwiftUI
 
+
 @main
-struct CrudSwiftAppApp: App {
+struct CrudSwiftApp: App {
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
-           // ContentView()
-               // .environment(\.managedObjectContext, persistenceController.container.viewContext)
-            // ESTO ES SOLO UNA PRUEBa
-            //prueba 2
+           ContentView()
+               .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            
         }
     }
 }
