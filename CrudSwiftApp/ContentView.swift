@@ -34,7 +34,7 @@ struct ContentView: View {
                     seleccionado?.longitud = longitud
                     seleccionado?.material = material
                     seleccionado?.peso = peso
-                    coreDM.actualizarViga(clv_viga: seleccionado!)
+                    coreDM.actualizarViga(clv_obra: seleccionado!)
                 }
                 else {
                     coreDM.guardarViga(clv_obra:clv_obra,clv_viga: clv_viga,longitud: longitud,material:material,peso: peso)
@@ -46,13 +46,51 @@ struct ContentView: View {
                 longitud = ""
                 material = ""
                 peso = ""
-                
+                seleccionado = nil
             }
+            List{
+                ForEach(vigasArray,id:\.self){
+                    v in
+                    VStack{
+                        Text(v.clv_obra ?? "")
+                        Text(v.clv_viga ?? "")
+                        Text(v.longitud ?? "")
+                        Text(v.material ?? "")
+                        Text(v.peso ?? "")
+                    }
+                    .onTapGesture {
+                        seleccionado = v
+                        clv_obra = v.clv_obra ?? ""
+                        clv_viga = v.clv_viga ?? ""
+                        longitud = v.longitud ?? ""
+                        material = v.material ?? ""
+                        peso = v.peso ?? ""
+                    }
+                }
+                .onDelete(perform:{
+                    IndexSet in
+                    IndexSet.forEach({index in
+                        let viga = vigasArray[index]
+                        coreDM.eliminarViga(Viga: viga)
+                        mostrarViga()
+                    })
+                })
+                    
+                }
+            Spacer()
+        }.padding()
+            .onAppear(perform: {
+                mostrarViga()
+            })
         }
         
-    }
+    
     func mostrarViga(){
         vigasArray = coreDM.leerViga()
     }
-    
+    struct ContentView_preViews: PreviewProvider {
+        static var previews: some View{
+            ContentView(coreDM: CoreDataManager())
+        }
+    }
 }
