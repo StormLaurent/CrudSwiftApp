@@ -46,9 +46,9 @@ class CoreDataManager {
             return[]
         }
     }
-    func leerViga(clv_viga:String)->Viga?{
+    func leerViga(clv_obra:String)->Viga?{
         let fetchRequest: NSFetchRequest<Viga> = Viga.fetchRequest()
-        let predicate = NSPredicate(format:"clv = %@", clv_viga)
+        let predicate = NSPredicate(format:"clv = %@", clv_obra)
         fetchRequest.predicate = predicate
         
         do{
@@ -70,19 +70,19 @@ class CoreDataManager {
             print("Ha ocurrido un error \(error.localizedDescription)")
         }
     }
-    func actualizarViga(clv_viga:Viga){
+    func actualizarViga(clv_obra:Viga){
         let fetchRequest : NSFetchRequest<Viga> = Viga.fetchRequest()
-        let predicate = NSPredicate(format: "clViga = %@", clv_viga ?? "")
+        let predicate = NSPredicate(format: "clv_obra = %@", clv_obra ?? "")
         fetchRequest.predicate = predicate
         
         do{
             let datos = try persistentContainer.viewContext.fetch(fetchRequest)
             let v = datos.first
-            v?.clv_obra = clv_viga.clv_obra
-            v?.clv_viga = clv_viga.clv_viga
-            v?.longitud = clv_viga.longitud
-            v?.material = clv_viga.material
-            v?.peso = clv_viga.peso
+            v?.clv_obra = clv_obra.clv_obra
+            v?.clv_viga = clv_obra.clv_viga
+            v?.longitud = clv_obra.longitud
+            v?.material = clv_obra.material
+            v?.peso = clv_obra.peso
             try persistentContainer.viewContext.save()
             print("Viga guardada")
         }
